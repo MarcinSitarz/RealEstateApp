@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RealEstate.Models;
+using RealEstate.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,16 +12,21 @@ namespace RealEstate.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private ItownCenter _townCenter;
+
+       
+        public HomeController(ItownCenter itownCenter)
         {
-            _logger = logger;
+            _townCenter = itownCenter;
         }
 
-        public IActionResult Index()
+        public IActionResult Index() 
         {
-            return View();
+            var center = _townCenter.GetTowns();
+            
+
+            return View(center);
         }
 
         public IActionResult Privacy()
