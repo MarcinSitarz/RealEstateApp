@@ -21,7 +21,7 @@ namespace RealEstate.Controllers
             _townCenter = itownCenter;
         }
 
-        public IActionResult Index()
+        public IActionResult Index() 
         {
             var center = _townCenter.GetTowns();
             
