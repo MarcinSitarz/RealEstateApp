@@ -1,4 +1,4 @@
-﻿@model List<Town>
+﻿@model Deserials
 
 
 @{
@@ -24,15 +24,23 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var obj in Model)
+
+            @foreach (var item in Model.Deserial)
             {
                 <tr>
-                    <td width="50%">@obj.Name</td>
-                    <td width="30%">@obj.Age</td>
+                    <td>@Html.DisplayFor(m=> item.TemperatureCelsius)</td>
+
+
                     <td></td>
                 </tr>
+
             }
+
+
         </tbody>
 
     </table>
+
+ 
+
 </div>

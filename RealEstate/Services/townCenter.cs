@@ -12,9 +12,22 @@ namespace RealEstate.Services
         
         public List<Town> GetTowns()
         {
-            towni.Add(new Town { Age = 2, Name = "cosik" });
+            
+
             return towni;
 
+        }
+
+        public void AddTown(Town tony)
+        {
+            
+            towni.Add(tony);
+           
+        }
+
+        public void DeleteTown()
+        {
+            towni.Clear();
         }
     }
 }
