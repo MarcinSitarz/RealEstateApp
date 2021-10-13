@@ -1,11 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using RealEstate.Models;
 using RealEstate.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace RealEstate.Controllers
@@ -21,13 +24,33 @@ namespace RealEstate.Controllers
             _townCenter = itownCenter;
         }
 
+        
         public IActionResult Index() 
         {
-            var center = _townCenter.GetTowns();
-            
+            var webClient = new WebClient();
 
-            return View(center);
+
+            var path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "RealEstate\\Json\\WeatherForecast.json");
+            var json = webClient.DownloadString(path);
+
+           var test = JsonConvert.DeserializeObject<Deserials>(json);
+
+            return View(test);
         }
+        public IActionResult AddTowns(Town tylda)
+        {
+            _townCenter.AddTown(tylda);
+            return RedirectToAction("Index");
+        }
+        public IActionResult DeleteTowns()
+        {
+            
+            _townCenter.DeleteTown();
+            return RedirectToAction("Index");
+        }
+        
+
+        
 
         public IActionResult Privacy()
         {

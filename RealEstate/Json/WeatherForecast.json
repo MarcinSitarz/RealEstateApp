@@ -1,0 +1,13 @@
+{
+	"Deserial":[
+{
+  "Date": "2019-08-01T00:00:00+02:00",
+  "TemperatureCelsius": 25,
+  "Summary": "Hot"
+},
+{
+  "Date": "2020-08-01T00:00:00+02:00",
+  "TemperatureCelsius": 252,
+  "Summary": "cold"
+}
+]}

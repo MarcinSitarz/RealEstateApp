@@ -9,5 +9,7 @@ namespace RealEstate.Services
     public interface ItownCenter
     {
         List<Town> GetTowns();
+        public void AddTown(Town tony);
+        public void DeleteTown();
     }
 }
